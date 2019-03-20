@@ -2,9 +2,9 @@
   "name": "strapi-provider-email-nodemailer",
   "version": "1.0.1",
   "description": "Nodemailer provider for Strapi with attacments support for latest Strapi versions.",
-  "main": "index.js",
+  "main": "./lib",
   "directories": {
-    "lib": "lib"
+    "lib": "./lib"
   },
   "dependencies": {
     "nodemailer": "^5.1.1"
@@ -27,6 +27,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yutikom/strapi-provider-email-nodemailer/issues"
+  },
+  "strapi": {
+    "isProvider": true
   },
   "homepage": "https://github.com/yutikom/strapi-provider-email-nodemailer#readme"
 }
