@@ -1,13 +1,14 @@
 {
   "name": "strapi-provider-email-nodemailer",
-  "version": "1.0.2",
-  "description": "Nodemailer provider for Strapi with attacments support for latest Strapi versions.",
+  "version": "1.0.3",
+  "description": "Nodemailer provider for Strapi with attacments support for latest Strapi versions and NTLM auth support",
   "main": "./lib",
   "directories": {
     "lib": "./lib"
   },
   "dependencies": {
-    "nodemailer": "^5.1.1"
+    "nodemailer": "^5.1.1",
+    "nodemailer-ntlm-auth": "^1.0.1"
   },
   "devDependencies": {},
   "scripts": {
