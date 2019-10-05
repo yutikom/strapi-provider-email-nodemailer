@@ -18,18 +18,19 @@ After selecting Nodemailer as the provider the are the following fields.
 
 | Field  | Description |
 | ------------- | ------------- |
-| Nodemailer Default From | Default sender if noone is provided  |
-| Nodemailer Default Reply-To | Default responder if noone is provided  |
+| Nodemailer_Default_From | Default sender address if noone is provided  |
+| Nodemailer_Default_Reply-To | Default responder address if noone is provided  |
 | Host | hostname or IP address to connect to (smtp.your-server.de)  |
-| Port | he port to connect to (in most cases: 587, 465 or 25)  |
+| Port | port to connect to (in most cases: 587, 465 or 25)  |
 | Username | authorisation name |
 | Password | authorisation pass  |
-| Secure |  if true the connection will use TLS when connecting to server. If false (the default) then TLS is used if server supports the STARTTLS extension. In most cases set this value to true if you are connecting to port 465. For port 587 or 25 keep it false |
-| Auth Method | currently there are 2 Authentication Methods available:<br>SMTP (Plain and Login) and NLMT |
+| Secure | if true the connection will use TLS when connecting to server. If false (the default) then TLS is used if server supports the STARTTLS extension. In most cases set this value to true if you are connecting to port 465. For port 587 or 25 keep it false |
+| Auth_Method | currently there are 2 Authentication Methods available:<br>SMTP (Plain and Login) and NLMT |
 
 ## Usage
 
-To use the Nodemailer provider the plugin needs to be activated and configured. You can call the Nodemailer in any controller or service via the Strapi email plugin.
+To use the Nodemailer provider the plugin needs to be activated and configured.
+You can call the Nodemailer in any controller or service via the Strapi email plugin.
 
 ```javascipt
 strapi.plugins['email'].services.email.send({
@@ -40,7 +41,7 @@ strapi.plugins['email'].services.email.send({
   html:  ''
 })
 ```
-Currently the following are supported:
+Currently the following fields are supported:
 
 | Field  | Description |
 | ------------- | ------------- |
