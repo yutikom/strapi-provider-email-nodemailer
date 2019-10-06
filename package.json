@@ -8,8 +8,8 @@
   },
   "dependencies": {
     "lodash": "4.17.15",
-    "nodemailer": "^5.1.1",
-    "nodemailer-ntlm-auth": "^1.0.1"
+    "nodemailer": "6.3.0",
+    "nodemailer-ntlm-auth": "1.0.1"
   },
   "devDependencies": {},
   "scripts": {
