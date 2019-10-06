@@ -1,18 +1,22 @@
 {
   "name": "strapi-provider-email-nodemailer",
-  "version": "2.0.0",
+  "version": "1.0.3",
   "description": "Nodemailer provider for Strapi with attacments support for latest Strapi versions and NTLM auth support",
   "main": "./lib",
   "directories": {
     "lib": "./lib"
   },
   "dependencies": {
+    "dotenv": "8.1.0",
     "lodash": "4.17.15",
     "nodemailer": "6.3.0",
     "nodemailer-ntlm-auth": "1.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "release-it": "12.4.2"
+  },
   "scripts": {
+    "release": "node -r dotenv/config node_modules/release-it/bin/release-it.js --dry-run",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
