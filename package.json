@@ -7,11 +7,16 @@
     "lib": "./lib"
   },
   "dependencies": {
-    "nodemailer": "^5.1.1",
-    "nodemailer-ntlm-auth": "^1.0.1"
+    "dotenv": "8.1.0",
+    "lodash": "4.17.15",
+    "nodemailer": "6.3.0",
+    "nodemailer-ntlm-auth": "1.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "release-it": "12.4.2"
+  },
   "scripts": {
+    "release": "node -r dotenv/config node_modules/release-it/bin/release-it.js --dry-run",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
