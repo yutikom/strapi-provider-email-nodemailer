@@ -16,7 +16,7 @@
     "release-it": "12.4.2"
   },
   "scripts": {
-    "release": "node -r dotenv/config node_modules/release-it/bin/release-it.js --dry-run",
+    "release": "node -r dotenv/config node_modules/release-it/bin/release-it.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
