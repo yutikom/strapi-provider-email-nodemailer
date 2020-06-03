@@ -15,7 +15,7 @@ In your **config/plugins.js** file:
 ```js
 module.exports = ({env}) => ({
     email: {
-        provider: "nodemailer",
+        provider: "nodemailer-v3",
         providerOptions: {},
         settings: {
             host: 'smtp.example.com',
