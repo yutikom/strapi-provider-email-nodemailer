@@ -1,6 +1,6 @@
 {
   "name": "strapi-provider-email-nodemailer-v3",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Nodemailer provider for Strapi v3",
   "main": "./lib",
   "directories": {
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yutikom/strapi-provider-email-nodemailer.git"
+    "url": "git+https://github.com/Saunved/strapi-provider-email-nodemailer.git"
   },
   "keywords": [
     "Strapi",
