@@ -13,7 +13,8 @@
     "nodemailer-ntlm-auth": "1.0.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "node -r dotenv/config node_modules/release-it/bin/release-it.js"    
   },
   "repository": {
     "type": "git",
@@ -33,5 +34,8 @@
   "strapi": {
     "isProvider": true
   },
-  "homepage": "https://github.com/yutikom/strapi-provider-email-nodemailer#readme"
+  "homepage": "https://github.com/yutikom/strapi-provider-email-nodemailer#readme",
+  "devDependencies": {
+    "release-it": "^13.6.5"
+  }
 }
