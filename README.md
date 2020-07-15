@@ -13,31 +13,46 @@ npm i strapi-provider-email-nodemailer-v3
 
 In your **config/plugins.js** file:
 ```js
-module.exports = ({env}) => ({
-    email: {
-        provider: "nodemailer-v3",
-        providerOptions: {},
-        settings: {
-            host: 'smtp.example.com',
-            port: 587,
-            username: 'username@example.com',
-            password: 'password',
-            secure: false
-        }
+module.exports = ({ env }) => ({
+  email: {
+    provider: 'nodemailer-v3',
+    providerOptions: {
+      host: env('SMTP_HOST', 'smtp.example.com'),
+      port: env('SMTP_PORT', 587),
+      username: env('SMTP_USERNAME'),
+      password: env('SMTP_PASSWORD'),
+      // ... any custom nodemailer options
+    },
+    settings: {
+      defaultFrom: 'hello@example.com',
+      defaultReplyTo: 'hello@example.com',
     }
-})
+  },
+});
 ```
 
-| Field  | Description |
-| ------------- | ------------- |
-| nodemailer_default_from | Default sender address if none is provided  |
-| nodemailer_default_reply_to | Default responder address if none is provided  |
-| host | hostname or IP address to connect to (smtp.your-server.com)  |
-| port | port to connect to (in most cases: 587, 465 or 25)  |
-| username | authorization username |
-| password | authorization password  |
-| secure | if true the connection will use TLS when connecting to server. If false (the default) then TLS is used if server supports the STARTTLS extension. In most cases set this value to true if you are connecting to port 465. For port 587 or 25, keep it false |
-| auth_method | currently there are 2 Authentication Methods available:<br>SMTP (Plain and Login) and NLMT |
+Check out the available options for nodemailer: https://nodemailer.com/about/
+
+You can override the default configurations for specific environments. E.g. for
+`NODE_ENV=development` in **config/env/development/plugins.js**:
+```js
+module.exports = ({ env }) => ({
+  email: {
+    provider: 'nodemailer-v3',
+    providerOptions: {
+      host: 'localhost',
+      port: 1025,
+      ignoreTLS: true,
+    },
+  },
+});
+```
+The above setting is useful for local development with
+[maildev](https://github.com/maildev/maildev).
+
+
+## Usage
+
 
 To send an email from anywhere inside Strapi:
 ```js
