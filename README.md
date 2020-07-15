@@ -1,12 +1,11 @@
-# strapi-provider-email-nodemailer-v3
-Forked from *strapi-provider-email-nodemailer*
+# strapi-provider-email-nodemailer
 
-Should work with Strapi 3.0.0+
+This release of nodemailer is compatible with Strapi 3.x
 
 ## Installation
 
 ```bash
-npm i strapi-provider-email-nodemailer-v3
+npm i strapi-provider-email-nodemailer
 ```
 
 ## Configuration
@@ -15,7 +14,7 @@ In your **config/plugins.js** file:
 ```js
 module.exports = ({ env }) => ({
   email: {
-    provider: 'nodemailer-v3',
+    provider: 'nodemailer',
     providerOptions: {
       host: env('SMTP_HOST', 'smtp.example.com'),
       port: env('SMTP_PORT', 587),
@@ -38,7 +37,7 @@ You can override the default configurations for specific environments. E.g. for
 ```js
 module.exports = ({ env }) => ({
   email: {
-    provider: 'nodemailer-v3',
+    provider: 'nodemailer',
     providerOptions: {
       host: 'localhost',
       port: 1025,

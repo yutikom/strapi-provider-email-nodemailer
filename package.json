@@ -1,6 +1,6 @@
 {
-  "name": "strapi-provider-email-nodemailer-v3",
-  "version": "1.0.2",
+  "name": "strapi-provider-email-nodemailer",
+  "version": "3.0.0",
   "description": "Nodemailer provider for Strapi v3",
   "main": "./lib",
   "directories": {
@@ -25,13 +25,13 @@
     "Provider",
     "Strapi 3"
   ],
-  "author": "Yurii Tykhomyrov, Saunved Mutalik",
+  "author": "Yurii Tykhomyrov, Saunved Mutalik, Robert Schäfer",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Saunved/strapi-provider-email-nodemailer/issues"
+    "url": "https://github.com/yutikom/strapi-provider-email-nodemailer/issues"
   },
   "strapi": {
     "isProvider": true
   },
-  "homepage": "https://github.com/Saunved/strapi-provider-email-nodemailer#readme"
+  "homepage": "https://github.com/yutikom/strapi-provider-email-nodemailer#readme"
 }
