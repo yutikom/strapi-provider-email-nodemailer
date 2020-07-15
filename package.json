@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Saunved/strapi-provider-email-nodemailer.git"
+    "url": "git+https://github.com/yutikom/strapi-provider-email-nodemailer.git"
   },
   "keywords": [
     "Strapi",
