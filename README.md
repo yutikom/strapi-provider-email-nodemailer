@@ -103,6 +103,7 @@ The following fields are supported:
 | ------------- | ------------- |
 | from | Email address of the sender|
 | to | Comma separated list or an array of recipients |
+| replyTo | Email address to which replies are sent |
 | cc | Comma separated list or an array of recipients |
 | bcc | Comma separated list or an array of recipients |
 | subject | Subject of the email |
