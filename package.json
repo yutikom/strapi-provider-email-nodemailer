@@ -1,7 +1,7 @@
 {
   "name": "strapi-provider-email-nodemailer",
-  "version": "2.0.0",
-  "description": "Nodemailer provider for Strapi with attacments support for latest Strapi versions and NTLM auth support",
+  "version": "3.0.0",
+  "description": "Nodemailer provider for Strapi 3",
   "main": "./lib",
   "directories": {
     "lib": "./lib"
@@ -9,15 +9,11 @@
   "dependencies": {
     "dotenv": "8.1.0",
     "lodash": "4.17.19",
-    "nodemailer": "6.3.0",
-    "nodemailer-ntlm-auth": "1.0.1"
-  },
-  "devDependencies": {
-    "release-it": "12.4.2"
+    "nodemailer": "6.3.0"
   },
   "scripts": {
-    "release": "node -r dotenv/config node_modules/release-it/bin/release-it.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "node -r dotenv/config node_modules/release-it/bin/release-it.js"
   },
   "repository": {
     "type": "git",
@@ -25,11 +21,26 @@
   },
   "keywords": [
     "Strapi",
-    "Automat-IT",
     "Email",
-    "Provider"
+    "Provider",
+    "Strapi 3"
   ],
-  "author": "Yurii Tykhomyrov",
+  "author": {
+    "name": "Yurii Tykhomyrov"
+  },
+  "contributors": [
+    {
+      "name": "Veit Bjarsch",
+      "email": "vb@poweruplink.com",
+      "url": "https://poweruplink.com"
+    },
+    {
+      "name": "Saunved Mutalik"
+    },
+    {
+      "name": "Robert Schäfer"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yutikom/strapi-provider-email-nodemailer/issues"
@@ -37,5 +48,8 @@
   "strapi": {
     "isProvider": true
   },
-  "homepage": "https://github.com/yutikom/strapi-provider-email-nodemailer#readme"
+  "homepage": "https://github.com/yutikom/strapi-provider-email-nodemailer#readme",
+  "devDependencies": {
+    "release-it": "13.6.5"
+  }
 }

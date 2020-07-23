@@ -1,9 +1,6 @@
 # strapi-provider-email-nodemailer
 
-Nodemailer provider for Strapi with attachments support for latest Strapi versions.
-
-Made by [Automat-IT](https://www.automat-it.com/)
-
+This release of the nodemailer provider for Strapi is compatible with Strapi 3.x
 
 ## Installation
 
@@ -13,39 +10,98 @@ npm i strapi-provider-email-nodemailer
 
 ## Configuration
 
-The Nodemailer provider can be enabled in the Strapi Admin UI via Plugins -> Emails -> Option Symbol.
-After selecting Nodemailer as the provider the are the following fields.
+In your **config/plugins.js** file:
+```js
+module.exports = ({ env }) => ({
+  email: {
+    provider: 'nodemailer',
+    providerOptions: {
+      host: env('SMTP_HOST', 'smtp.example.com'),
+      port: env('SMTP_PORT', 587),
+      auth: {
+        user: env('SMTP_USERNAME'),
+        pass: env('SMTP_PASSWORD'),
+      }
+      // ... any custom nodemailer options
+    },
+    settings: {
+      defaultFrom: 'hello@example.com',
+      defaultReplyTo: 'hello@example.com',
+    }
+  }
+});
+```
 
-| Field  | Description |
-| ------------- | ------------- |
-| Nodemailer_Default_From | Default sender address if noone is provided  |
-| Nodemailer_Default_Reply-To | Default responder address if noone is provided  |
-| Host | hostname or IP address to connect to (smtp.your-server.de)  |
-| Port | port to connect to (in most cases: 587, 465 or 25)  |
-| Username | authorisation name |
-| Password | authorisation pass  |
-| Secure | if true the connection will use TLS when connecting to server. If false (the default) then TLS is used if server supports the STARTTLS extension. In most cases set this value to true if you are connecting to port 465. For port 587 or 25 keep it false |
-| Auth_Method | currently there are 2 Authentication Methods available:<br>SMTP (Plain and Login) and NLMT |
+Check out the available options for nodemailer: https://nodemailer.com/about/
+
+### Development mode
+
+You can override the default configurations for specific environments. E.g. for
+`NODE_ENV=development` in **config/env/development/plugins.js**:
+```js
+module.exports = ({ env }) => ({
+  email: {
+    provider: 'nodemailer',
+    providerOptions: {
+      host: 'localhost',
+      port: 1025,
+      ignoreTLS: true,
+    },
+  },
+});
+```
+The above setting is useful for local development with
+[maildev](https://github.com/maildev/maildev).
+
+### Custom authentication mechanisms
+
+It is also possible to use custom authentication methods.
+Here is an example for a NTLM authentication: 
+```js
+const nodemailerNTLMAuth = require('nodemailer-ntlm-auth');
+
+module.exports = ({ env }) => ({
+  email: {
+    provider: 'nodemailer',
+    providerOptions: {
+      host: env('SMTP_HOST', 'smtp.example.com'),
+      port: env('SMTP_PORT', 587),
+      auth: {
+        type: 'custom',
+        method: 'NTLM',
+        user: env('SMTP_USERNAME'),
+        pass: env('SMTP_PASSWORD')
+      },
+      customAuth: {
+        NTLM: nodemailerNTLMAuth
+      }
+    },
+    settings: {
+      defaultFrom: 'hello@example.com',
+      defaultReplyTo: 'hello@example.com',
+    }
+  }
+});
+```
 
 ## Usage
 
-To use the Nodemailer provider the plugin needs to be activated and configured.
-You can call the Nodemailer in any controller or service via the Strapi email plugin.
+To send an email from anywhere inside Strapi:
+```js
+await strapi.plugins['email'].services.email.send({
+    to: 'someone@example.com',
+    from: 'someone2@example.com',
+    subject:  'Hello world',
+    text:  'Hello world',
+    html:  `<h4>Hello world</h4>`
+  });
+```   
 
-```javascipt
-strapi.plugins['email'].services.email.send({
-  to: '',
-  from: '',
-  subject:  '',
-  text:  '',
-  html:  ''
-})
-```
-Currently the following fields are supported:
+The following fields are supported:
 
 | Field  | Description |
 | ------------- | ------------- |
-| from | Email address of the sender (e.g.'sender@example.com' or '"Sender Name" sender@server.com') |
+| from | Email address of the sender|
 | to | Comma separated list or an array of recipients |
 | replyTo | Email address to which replies are sent |
 | cc | Comma separated list or an array of recipients |
@@ -54,6 +110,20 @@ Currently the following fields are supported:
 | text | Plaintext version of the message |
 | html | HTML version of the message |
 | attachments | Array of objects See: https://nodemailer.com/message/attachments/ |
+
+## Troubleshooting
+
+Check your firewall to ensure that requests are allowed. If it doesn't work with 
+```js
+port: 465,
+secure: true
+```
+try using
+```js
+port: 587,
+secure: false
+```
+to test if it works correctly.
 
 ## Links
 
