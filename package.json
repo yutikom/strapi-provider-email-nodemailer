@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "dotenv": "8.1.0",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "nodemailer": "6.3.0",
     "nodemailer-ntlm-auth": "1.0.1"
   },
