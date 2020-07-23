@@ -18,19 +18,23 @@ module.exports = ({ env }) => ({
     providerOptions: {
       host: env('SMTP_HOST', 'smtp.example.com'),
       port: env('SMTP_PORT', 587),
-      username: env('SMTP_USERNAME'),
-      password: env('SMTP_PASSWORD'),
+      auth: {
+        user: env('SMTP_USERNAME'),
+        pass: env('SMTP_PASSWORD'),
+      }
       // ... any custom nodemailer options
     },
     settings: {
       defaultFrom: 'hello@example.com',
       defaultReplyTo: 'hello@example.com',
     }
-  },
+  }
 });
 ```
 
 Check out the available options for nodemailer: https://nodemailer.com/about/
+
+### Development mode
 
 You can override the default configurations for specific environments. E.g. for
 `NODE_ENV=development` in **config/env/development/plugins.js**:
@@ -49,9 +53,38 @@ module.exports = ({ env }) => ({
 The above setting is useful for local development with
 [maildev](https://github.com/maildev/maildev).
 
+### Custom authentication mechanisms
+
+It is also possible to use custom authentication methods.
+Here is an example for a NTLM authentication: 
+```js
+const nodemailerNTLMAuth = require('nodemailer-ntlm-auth');
+
+module.exports = ({ env }) => ({
+  email: {
+    provider: 'nodemailer',
+    providerOptions: {
+      host: env('SMTP_HOST', 'smtp.example.com'),
+      port: env('SMTP_PORT', 587),
+      auth: {
+        type: 'custom',
+        method: 'NTLM',
+        user: env('SMTP_USERNAME'),
+        pass: env('SMTP_PASSWORD')
+      },
+      customAuth: {
+        NTLM: nodemailerNTLMAuth
+      }
+    },
+    settings: {
+      defaultFrom: 'hello@example.com',
+      defaultReplyTo: 'hello@example.com',
+    }
+  }
+});
+```
 
 ## Usage
-
 
 To send an email from anywhere inside Strapi:
 ```js
@@ -78,6 +111,7 @@ The following fields are supported:
 | attachments | Array of objects See: https://nodemailer.com/message/attachments/ |
 
 ## Troubleshooting
+
 Check your firewall to ensure that requests are allowed. If it doesn't work with 
 ```js
 port: 465,
