@@ -47,6 +47,7 @@ Currently the following fields are supported:
 | ------------- | ------------- |
 | from | Email address of the sender (e.g.'sender@example.com' or '"Sender Name" sender@server.com') |
 | to | Comma separated list or an array of recipients |
+| replyTo | Email address to which replies are sent |
 | cc | Comma separated list or an array of recipients |
 | bcc | Comma separated list or an array of recipients |
 | subject | Subject of the email |
