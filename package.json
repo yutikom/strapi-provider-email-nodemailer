@@ -1,7 +1,7 @@
 {
   "name": "strapi-provider-email-nodemailer",
   "version": "3.0.0",
-  "description": "Nodemailer provider for Strapi v3",
+  "description": "Nodemailer provider for Strapi 3",
   "main": "./lib",
   "directories": {
     "lib": "./lib"
@@ -9,12 +9,11 @@
   "dependencies": {
     "dotenv": "8.1.0",
     "lodash": "4.17.15",
-    "nodemailer": "6.3.0",
-    "nodemailer-ntlm-auth": "1.0.1"
+    "nodemailer": "6.3.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "node -r dotenv/config node_modules/release-it/bin/release-it.js"    
+    "release": "node -r dotenv/config node_modules/release-it/bin/release-it.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +25,22 @@
     "Provider",
     "Strapi 3"
   ],
-  "author": "Yurii Tykhomyrov, Saunved Mutalik, Robert Schäfer",
+  "author": {
+    "name": "Yurii Tykhomyrov"
+  },
+  "contributors": [
+    {
+      "name": "Veit Bjarsch",
+      "email": "vb@poweruplink.com",
+      "url": "https://poweruplink.com"
+    },
+    {
+      "name": "Saunved Mutalik"
+    },
+    {
+      "name": "Robert Schäfer"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yutikom/strapi-provider-email-nodemailer/issues"
@@ -36,6 +50,6 @@
   },
   "homepage": "https://github.com/yutikom/strapi-provider-email-nodemailer#readme",
   "devDependencies": {
-    "release-it": "^13.6.5"
+    "release-it": "13.6.5"
   }
 }
