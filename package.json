@@ -50,6 +50,6 @@
   },
   "homepage": "https://github.com/yutikom/strapi-provider-email-nodemailer#readme",
   "devDependencies": {
-    "release-it": "13.6.5"
+    "release-it": "13.7.2"
   }
 }
